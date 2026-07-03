@@ -22,15 +22,15 @@ En güncel Android sürümünü [**GitHub Releases**](https://github.com/Kscl1/f
 
 | Dosya | Açıklama |
 | --- | --- |
-| `flora-lens-universal.apk` | ARM (`arm64-v8a`, `armeabi-v7a`) cihazları destekleyen imzalı APK |
+| `flora-lens-arm64-v8a.apk` | 64-bit ARM (`arm64-v8a`) cihazları destekleyen imzalı APK |
 | `SHA256SUMS.txt` | İndirilen APK'nın bütünlük kontrolü |
 
 - **Gereksinim:** Android 11 veya daha yeni bir sürüm
-- **APK boyutu:** yaklaşık 150,6 MiB (157,9 MB)
+- **APK boyutu:** yaklaşık 75,0 MiB (78,6 MB)
 
 ### Kurulum
 
-1. Releases sayfasından `flora-lens-universal.apk` dosyasını indirin.
+1. Releases sayfasından `flora-lens-arm64-v8a.apk` dosyasını indirin.
 2. Android isterse tarayıcınız veya dosya yöneticiniz için “bilinmeyen uygulama yükleme” iznini açın.
 3. APK'yı çalıştırarak kurulumu tamamlayın.
 4. Uygulamadaki **Ayarlar** ekranından ihtiyaç duyduğunuz bitkiye ait uzman modeli indirin.
@@ -38,7 +38,7 @@ En güncel Android sürümünü [**GitHub Releases**](https://github.com/Kscl1/f
 APK bütünlüğünü Windows PowerShell ile doğrulamak için:
 
 ```powershell
-Get-FileHash .\flora-lens-universal.apk -Algorithm SHA256
+Get-FileHash .\flora-lens-arm64-v8a.apk -Algorithm SHA256
 ```
 
 Üretilen değeri release içindeki `SHA256SUMS.txt` ile karşılaştırın.
