@@ -59,12 +59,10 @@ Get-FileHash .\flora-lens-arm64-v8a.apk -Algorithm SHA256
   <tr>
     <td align="center"><img src="assets/screenshots/home.png" width="260" alt="Flora Lens ana ekranı ve çevre koşulları özeti"><br><strong>Ana ekran</strong></td>
     <td align="center"><img src="assets/screenshots/scan.png" width="260" alt="Kamera ve galeriden görsel seçme ekranı"><br><strong>Görsel seçimi</strong></td>
-  </tr>
-  <tr>
     <td align="center"><img src="assets/screenshots/diagnosis-result.jpeg" width="260" alt="Mısır pas hastalığı için üretilen teşhis sonucu"><br><strong>Teşhis sonucu</strong></td>
-    <td align="center"><img src="assets/screenshots/non-plant.jpeg" width="260" alt="Bitki dışı görsel için kontrollü sonuç"><br><strong>Kontrollü bitki dışı sonuç</strong></td>
   </tr>
   <tr>
+    <td align="center"><img src="assets/screenshots/non-plant.jpeg" width="260" alt="Bitki dışı görsel için kontrollü sonuç"><br><strong>Kontrollü bitki dışı sonuç</strong></td>
     <td align="center"><img src="assets/screenshots/history.jpeg" width="260" alt="Teşhis geçmişi listesi"><br><strong>Teşhis geçmişi</strong></td>
     <td align="center"><img src="assets/screenshots/model-management.jpeg" width="260" alt="İndirilebilir uzman model yönetimi ekranı"><br><strong>Model yönetimi</strong></td>
   </tr>
