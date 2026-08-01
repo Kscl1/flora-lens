@@ -51,9 +51,17 @@ Ana ekrandaki çevre koşulları özeti için kullanıcıdan isteğe bağlı yak
 Bitki türüne özgü uzman modeller ihtiyaç halinde Flora Lens model gateway'i üzerinden indirilir.
 
 - İstek sırasında internet hizmetlerinin çalışması için gerekli standart teknik bilgiler, örneğin IP adresi, istek zamanı, istenen dosya ve kullanıcı aracısı altyapı sağlayıcısı tarafından işlenebilir.
-- İndirilen model cihazda saklanır ve uygulama tarafından dosya boyutu ile SHA-256 özeti kullanılarak doğrulanır.
-- Kullanıcı indirdiği modelleri **Ayarlar** ekranından silebilir.
-- Model indirmek için kullanıcı hesabı, ad, e-posta veya telefon numarası istenmez.
+- İndirilen model cihazda saklanır ve **Ayarlar** ekranından silinebilir.
+- Model indirmek için ad, e-posta veya telefon numarası istenmez.
+
+### 5. Cihaz Yedeklemesi
+
+Android'in kendi yedekleme özelliği (Google One / Yedekle ve geri yükle) açıksa, uygulamaya ait bazı yerel veriler işletim sistemi tarafından kullanıcının Google hesabına yedeklenebilir.
+
+- Teşhis geçmişi kayıtları ve bunlara bağlı görseller yedeklemeye **dahildir**; böylece cihaz değiştirildiğinde geçmiş kayıtlar görselleriyle birlikte geri gelir.
+- İndirilen uzman modeller yedeklemenin **dışında tutulur**; gerektiğinde model gateway'inden yeniden indirilir.
+- Bu yedekleme Google tarafından işletilir, Flora Lens sunucularına veri göndermez ve Android tarafından cihaz kilit ekranı bilgisiyle şifrelenir.
+- Yedeklemeyi istemeyen kullanıcı Android ayarlarından uygulama yedeklemesini kapatabilir.
 
 ## Uygulama İzinleri
 
@@ -81,8 +89,8 @@ Bu hizmetlerin kendi veri işleme ve saklama politikaları geçerlidir. Open-Met
 | Veri | Saklama yaklaşımı | Kullanıcı kontrolü |
 | --- | --- | --- |
 | Geçici analiz görseli | Uygulama önbelleğinde geçici | Android veya uygulama tarafından temizlenebilir |
-| Kaydedilmiş teşhis ve görsel | Kullanıcı silene, uygulama verileri temizlenene veya uygulama kaldırılana kadar cihazda | Geçmiş ekranından silme |
-| İndirilen uzman model | Kullanıcı silene, uygulama verileri temizlenene veya uygulama kaldırılana kadar cihazda | Ayarlar ekranından silme |
+| Kaydedilmiş teşhis ve görsel | Kullanıcı silene, uygulama verileri temizlenene veya uygulama kaldırılana kadar cihazda; Android yedeklemesi açıksa kullanıcının Google hesabında | Geçmiş ekranından silme, Android yedeklemesini kapatma |
+| İndirilen uzman model | Kullanıcı silene, uygulama verileri temizlenene veya uygulama kaldırılana kadar cihazda; yedeklemeye dahil edilmez | Ayarlar ekranından silme |
 | Yaklaşık konum | Flora Lens tarafından kalıcı geçmiş olarak saklanmaz | Konum iznini Android ayarlarından kapatma |
 | Sağlayıcı ağ günlükleri | İlgili hizmet sağlayıcının politikasına göre | Sağlayıcının gizlilik kanalları üzerinden |
 
@@ -90,36 +98,35 @@ Android ayarlarından Flora Lens uygulama verilerini temizlemek veya uygulamayı
 
 ## Güvenlik Yaklaşımı
 
-- Teşhis çıkarımı cihaz üzerinde gerçekleştirilir.
 - Yerel kayıtlar Android'in uygulamaya özel depolama alanında tutulur.
-- Model dosyaları indirme tamamlanmadan kalıcı model olarak kullanılmaz.
-- İndirilen modeller boyut ve SHA-256 bütünlük kontrollerinden geçirilir.
+- İndirilen modeller boyut ve SHA-256 bütünlük kontrollerinden geçirilir; doğrulama tamamlanmadan kullanılmaz.
+- Model servisi yalnız uygulamanın imzalı isteklerine yanıt verir.
 - Uygulama paketine GitHub erişim anahtarı, R2 kimlik bilgisi veya benzeri kalıcı bir sunucu sırrı eklenmez.
 
 Hiçbir teknik yöntem mutlak güvenlik garantisi vermez; uygulama ve altyapı makul güvenlik önlemleriyle işletilir.
 
-## Kullanıcı Tercihleri
+## Verileriniz Üzerindeki Kontrolünüz
 
-Kullanıcı:
+Flora Lens ekibi sizin hakkınızda bir kayıt tutmaz; teşhisleriniz, görselleriniz ve indirdiğiniz modeller yalnız kendi cihazınızdadır. Bu nedenle verileriniz üzerindeki kontrolün tamamı doğrudan sizde:
 
-- kamera ve konum izinlerini vermeyebilir veya Android ayarlarından geri alabilir,
-- teşhis sonuçlarını geçmişe kaydetmemeyi seçebilir,
-- geçmiş kayıtlarını ve ilişkili görselleri silebilir,
-- indirilen uzman modelleri kaldırabilir,
-- uygulama verilerini temizleyebilir veya uygulamayı kaldırabilir.
+| İstediğiniz | Nasıl yapılır |
+| --- | --- |
+| Kayıtlarımı görmek | **Geçmiş** ekranı kaydedilmiş tüm teşhisleri listeler |
+| Silmek | Geçmiş ekranından kayıt silme, Ayarlar'dan model silme, Android ayarlarından uygulama verilerini temizleme |
+| İşlemeyi durdurmak | Kamera ve konum izinlerini vermeme veya Android ayarlarından geri alma; sonucu geçmişe kaydetmeme |
+
+KVKK ve GDPR kapsamındaki diğer talepleriniz için aşağıdaki iletişim adresini kullanabilirsiniz.
 
 ## Çocukların Gizliliği
 
-Flora Lens çocuklara yönelik bir hesap veya sosyal hizmet sunmaz ve bilerek çocuklardan kimlik bilgisi toplamaz. Uygulama, kullanıcı hesabı olmadan çalışan bir araştırma ve karar destek prototipidir.
+Flora Lens çocuklara yönelik bir hizmet değildir ve bilerek çocuklardan kimlik bilgisi toplamaz.
 
 ## Değişiklikler
 
-Uygulamanın veri işleme davranışı değişirse bu bilgilendirme güncellenir ve yürürlük tarihi yenilenir. Güncel sürüm bu GitHub deposunda yayımlanır.
+Uygulamanın veri işleme davranışı değişirse bu bilgilendirme güncellenir, yürürlük tarihi yenilenir ve güncel sürüm bu depoda yayımlanır. Önemli bir değişiklik olduğunda ilgili uygulama sürümünün yayın notlarında ayrıca belirtilir; bu nedenle uygulamayı güncellerken yayın notlarını okumanızı öneririz.
 
-## İletişim
+## Veri Sorumlusu ve İletişim
 
-Gizlilik veya teknik sorular için [GitHub Issues](https://github.com/Kscl1/flora-lens/issues) üzerinden proje ekibine ulaşabilirsiniz. Issue kayıtları herkese açıktır; kişisel veya hassas bilgi paylaşmayın.
+**Veri sorumlusu:** Flora Lens proje ekibi (TÜBİTAK 2209-A projesi)
 
-## Kullanım Sınırı
-
-Flora Lens bir araştırma ve karar destek prototipidir. Uygulama sonuçları profesyonel tarımsal teşhis veya danışmanlığın yerine geçmez.
+Gizlilik veya teknik sorularınızı [GitHub Issues](https://github.com/Kscl1/flora-lens/issues) üzerinden iletebilirsiniz. Issue kayıtları herkese açıktır; kişisel veya hassas bilgi paylaşmayın.

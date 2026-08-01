@@ -14,34 +14,40 @@ Proje, **TÜBİTAK 2209-A Üniversite Öğrencileri Araştırma Projeleri Destek
 
 > **Uyarı:** Flora Lens profesyonel tarımsal teşhisin yerine geçmez; sonuçların doğruluğu bitki türüne göre değişir. Ayrıntılar için [Sınırlılıklar](#sınırlılıklar) bölümüne bakın.
 
+## İçindekiler
+
+**Uygulamayı kullanmak için** &nbsp;·&nbsp; [İndirme ve kurulum](#indirme) &nbsp;·&nbsp; [Ekran görüntüleri](#ekran-görüntüleri) &nbsp;·&nbsp; [Desteklenen bitkiler](#desteklenen-bitkiler) &nbsp;·&nbsp; [Sınırlılıklar](#sınırlılıklar) &nbsp;·&nbsp; [Gizlilik](#gizlilik)
+
+**Araştırma tarafı** &nbsp;·&nbsp; [Projenin amacı](#projenin-amacı) &nbsp;·&nbsp; [Veri seti ve model çalışmaları](#veri-seti-ve-model-çalışmaları) &nbsp;·&nbsp; [Aşama başarımları](#aşama-başarımları) &nbsp;·&nbsp; [Doğrulama](#doğrulama)
+
+**Teknik taraf** &nbsp;·&nbsp; [Mobil uygulama](#mobil-uygulama) &nbsp;·&nbsp; [Mühendislik kararları](#mobil-mühendislik-kararları) &nbsp;·&nbsp; [Teknik yapı](#teknik-yapı)
+
+**Proje** &nbsp;·&nbsp; [Ekip](#proje-ekibi) &nbsp;·&nbsp; [Lisans ve dağıtım](#lisans-ve-dağıtım)
+
 ---
+
+<a id="indirme"></a>
 
 ## Uygulamayı İndir
 
 En güncel Android sürümünü [**GitHub Releases**](https://github.com/Kscl1/flora-lens/releases/latest) sayfasından indirebilirsiniz.
 
-| Dosya | Açıklama |
-| --- | --- |
-| `flora-lens-arm64-v8a.apk` | 64-bit ARM (`arm64-v8a`) cihazları destekleyen imzalı APK |
-| `SHA256SUMS.txt` | İndirilen APK'nın bütünlük kontrolü |
+İndirilecek dosya: **`flora-lens-arm64-v8a.apk`** — 64-bit ARM (`arm64-v8a`) cihazları destekleyen imzalı APK.
 
-- **Gereksinim:** Android 11 veya daha yeni bir sürüm
+- **Gereksinim:** Android 11 veya daha yeni bir sürüm, 64-bit ARM işlemci
 - **APK boyutu:** yaklaşık 75,0 MiB (78,6 MB)
 
 ### Kurulum
 
 1. Releases sayfasından `flora-lens-arm64-v8a.apk` dosyasını indirin.
 2. Android isterse tarayıcınız veya dosya yöneticiniz için “bilinmeyen uygulama yükleme” iznini açın.
-3. APK'yı çalıştırarak kurulumu tamamlayın.
-4. Uygulamadaki **Ayarlar** ekranından ihtiyaç duyduğunuz bitkiye ait uzman modeli indirin.
+3. Uygulamadaki **Ayarlar** ekranından ihtiyaç duyduğunuz bitkiye ait uzman modeli indirin.
 
-APK bütünlüğünü Windows PowerShell ile doğrulamak için:
+İsterseniz indirdiğiniz dosyanın bozulmadığını doğrulayabilirsiniz. GitHub, Releases sayfasında her dosyanın yanında SHA-256 değerini gösterir; kendi bilgisayarınızda hesapladığınız değerin onunla aynı olması gerekir:
 
 ```powershell
 Get-FileHash .\flora-lens-arm64-v8a.apk -Algorithm SHA256
 ```
-
-Üretilen değeri release içindeki `SHA256SUMS.txt` ile karşılaştırın.
 
 ---
 
@@ -145,8 +151,6 @@ Başlıca işlevler:
 
 ### Desteklenen Bitkiler
 
-Uygulama toplam 15 bitki türünü destekler:
-
 - **Ev / süs bitkileri:** Aloe vera, Gül
 - **Tarımsal bitkiler:** Elma, Fasulye, Kahve, Mısır, Pamuk, Salatalık, Üzüm, Dolmalık biber, Patates, Şeker kamışı, Domates, Buğday, Manyok
 
@@ -202,22 +206,18 @@ Mobil doğrulama, **model doğruluk testlerinden ayrı olarak**, uygulamanın fa
 
 ---
 
-## Gizlilik ve Kapsam
+## Gizlilik
 
-- Yaprak görselleri teşhis için bir sunucuya yüklenmez; çıkarım cihaz üzerinde yapılır.
-- Kamera izni yalnız fotoğraf çekimi için kullanılır.
-- Yaklaşık konum izni isteğe bağlıdır ve yalnız çevre koşullarını yerelleştirmek için kullanılır; izin verilmezse varsayılan olarak Ankara verisi gösterilir.
-- Teşhis geçmişi ve indirilen modeller uygulamanın yerel alanında tutulur.
-- Model, katalog ve hava durumu isteklerinde hizmet sağlayıcıların standart teknik ağ kayıtları oluşabilir.
+Kamera ve yaklaşık konum izinleri isteğe bağlıdır; teşhis geçmişi ve indirilen modeller yalnız cihazda tutulur.
 
-Ayrıntılı bilgi için [Gizlilik Bilgilendirmesi](PRIVACY.md) dosyasını inceleyin.
+Hangi verinin neden işlendiği, saklama süreleri ve haklarınız için: **[Gizlilik Bilgilendirmesi](PRIVACY.md)**
 
 ---
 
 ## Sınırlılıklar
 
-- Hastalık teşhisi başarımı bitki türüne göre belirgin biçimde değişir; domates, manyok ve aloe vera gibi türlerde uzman model performansı düşüktür (bkz. [Aşama Başarımları](#aşama-başarımları)).
-- Sistem yalnızca desteklenen 15 bitkiyi tanır; **pirinç** düşük ayrıştırılabilirlik nedeniyle kapsam dışıdır ve kapsam dışı bitkilerde anlamlı sonuç üretilmez.
+- Hastalık teşhisi başarımı bitki türüne göre %62 ile %98 arasında değişir (bkz. [Aşama Başarımları](#aşama-başarımları)).
+- Sistem yalnızca desteklenen 15 bitkiyi tanır; kapsam dışı bitkilerde anlamlı sonuç üretmez.
 - Uzman modeller ilk kullanımda internet üzerinden indirilir; ikili ve yönlendirici modeller uygulamayla birlikte gelir.
 - Metrikler kontrollü araştırma veri setlerine aittir; ışık, açı, kadraj ve arka plan gibi saha koşulları sonuçları etkileyebilir.
 - Düşük güvenli veya belirsiz durumlarda uygulama kesin sonuç yerine kontrollü bir çıktı gösterir.
@@ -234,14 +234,8 @@ Ayrıntılı bilgi için [Gizlilik Bilgilendirmesi](PRIVACY.md) dosyasını ince
 
 ---
 
-## Akademik Kullanım ve Atıf
-
-Bu depo, TÜBİTAK 2209-A projesi kapsamında geliştirilen mobil prototipin dağıtım sayfasıdır. Projeye ilişkin yayın veya makale bilgisi kesinleştiğinde bibliyografik künye ve atıf bilgileri bu bölüme eklenecektir.
-
----
-
 ## Lisans ve Dağıtım
 
-Bu depo yalnızca uygulamanın indirilebilir APK'sını ve kullanıcı dokümantasyonunu yayımlar. Kaynak kodu ve model ağırlıkları bu dağıtımın parçası değildir. Açık kaynak lisansı ayrıca belirtilmedikçe içeriklerin tüm hakları saklıdır ve yeniden dağıtım hakkı verilmiş sayılmaz.
+Bu depo yalnızca uygulamanın indirilebilir APK'sını ve kullanıcı dokümantasyonunu yayımlar. Kaynak kodu ve model ağırlıkları bu dağıtımın parçası değildir.
 
-© 2026 Flora Lens proje ekibi. Tüm hakları saklıdır.
+© 2026 Flora Lens proje ekibi. Açık kaynak lisansı ayrıca belirtilmedikçe tüm hakları saklıdır; yeniden dağıtım hakkı verilmiş sayılmaz.
