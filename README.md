@@ -30,7 +30,9 @@ Proje, **TÜBİTAK 2209-A Üniversite Öğrencileri Araştırma Projeleri Destek
 
 ## Uygulamayı İndir
 
-En güncel Android sürümünü [**GitHub Releases**](https://github.com/Kscl1/flora-lens/releases/latest) sayfasından indirebilirsiniz.
+En güncel Android sürümünü [**GitHub Releases**](https://github.com/Kscl1/flora-lens/releases/latest) sayfasından indirebilirsiniz. Telefonunuzla doğrudan indirme sayfasına gitmek için bu kodu okutabilirsiniz:
+
+<img src="flora-lens-latest-qr.png" width="150" alt="Son sürüm indirme sayfasının QR kodu">
 
 İndirilecek dosya: **`flora-lens-arm64-v8a.apk`** — 64-bit ARM (`arm64-v8a`) cihazları destekleyen imzalı APK.
 
